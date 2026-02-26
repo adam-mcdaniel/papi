@@ -3198,22 +3198,32 @@ static int init_event_table(void) {
           AMDSMI_STATUS_SUCCESS)
         continue;
       const char *names[] = {
-          "ppt_pwr_violation_acc",    "socket_thrm_violation_acc",
-          "vr_thrm_violation_acc",    "ppt_pwr_violation_pct",
-          "socket_thrm_violation_pct", "vr_thrm_violation_pct",
-          "ppt_pwr_violation_active",  "socket_thrm_violation_active",
-          "vr_thrm_violation_active"};
+          "ppt_pwr_violation_acc", "socket_thrm_violation_acc", "vr_thrm_violation_acc", "prochot_thrm_violation_acc", "hbm_thrm_violation_acc",
+          
+          "ppt_pwr_violation_pct", "socket_thrm_violation_pct", "vr_thrm_violation_pct", "prochot_thrm_violation_pct", "hbm_thrm_violation_pct",
+        
+          "ppt_pwr_violation_active",  "socket_thrm_violation_active", "vr_thrm_violation_active", "prochot_thrm_violation_active", "hbm_thrm_violation_active"
+        };
       const char *descr[] = {
           "Package power tracking violation count",
           "Socket thermal violation count",
           "Voltage regulator thermal violation count",
+          "Processor hot thermal violation count",
+          "HBM thermal violation count",
+
           "Package power tracking violation percentage",
           "Socket thermal violation percentage",
           "Voltage regulator thermal violation percentage",
+          "Processor hot thermal violation percentage",
+          "HBM thermal violation percentage",
+
           "Package power tracking violation active flag",
           "Socket thermal violation active flag",
-          "Voltage regulator thermal violation active flag"};
-      for (int v = 0; v < 9; ++v) {
+          "Voltage regulator thermal violation active flag",
+          "Processor hot thermal violation active flag",
+          "HBM thermal violation active flag"
+        };
+      for (int v = 0; v < 15; ++v) {
         CHECK_EVENT_IDX(idx);
         CHECK_SNPRINTF(name_buf, sizeof(name_buf), "%s:device=%d", names[v], d);
         CHECK_SNPRINTF(descr_buf, sizeof(descr_buf), "Device %d %s", d, descr[v]);

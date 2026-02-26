@@ -2942,22 +2942,40 @@ int access_amdsmi_violation_status(int mode, void *arg) {
     event->value = (int64_t)info.acc_vr_thrm;
     break;
   case 3:
-    event->value = (int64_t)info.per_ppt_pwr;
+    event->value = (int64_t)info.acc_prochot_thrm;
     break;
   case 4:
-    event->value = (int64_t)info.per_socket_thrm;
+    event->value = (int64_t)info.acc_hbm_thrm;
     break;
   case 5:
-    event->value = (int64_t)info.per_vr_thrm;
+    event->value = (int64_t)info.per_ppt_pwr;
     break;
   case 6:
-    event->value = (int64_t)info.active_ppt_pwr;
+    event->value = (int64_t)info.per_socket_thrm;
     break;
   case 7:
-    event->value = (int64_t)info.active_socket_thrm;
+    event->value = (int64_t)info.per_vr_thrm;
     break;
   case 8:
+    event->value = (int64_t)info.per_prochot_thrm;
+    break;
+  case 9:
+    event->value = (int64_t)info.per_hbm_thrm;
+    break;
+  case 10:
+    event->value = (int64_t)info.active_ppt_pwr;
+    break;
+  case 11:
+    event->value = (int64_t)info.active_socket_thrm;
+    break;
+  case 12:
     event->value = (int64_t)info.active_vr_thrm;
+    break;
+  case 13:
+    event->value = (int64_t)info.active_prochot_thrm;
+    break;
+  case 14:
+    event->value = (int64_t)info.active_hbm_thrm;
     break;
   default:
     return PAPI_ENOSUPP;
